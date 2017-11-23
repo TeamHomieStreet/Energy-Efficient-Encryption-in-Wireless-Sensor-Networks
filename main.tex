@@ -1,0 +1,122 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{blindtext, graphicx, url}
+\graphicspath{ {images/} }
+\ifCLASSINFOpdf
+  
+\else
+  
+\fi
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+
+\title{Energy Effecient Encryption in Wireless Sensor Network}
+
+
+\author{\IEEEauthorblockN{Vipul Gupta}
+\IEEEauthorblockA{Electronics and\\Communication Engineering\\
+Indian Institute of Technology Roorkee\\
+Roorkee-247667, Uttrakhand\\
+Email: vipul26.h@gmail.com}
+}
+
+\maketitle
+
+
+\begin{abstract}
+%\boldmath
+Wireless sensor networks(WSN) are being widely used and is one of the key areas of research. These devices are wearable and implantable. Body sensor networks play a major role in minimizing the needs of caregivers and provides people with quality care and reduces the chances of death in case of potentially harmful diseases. These devices are made based on various factors like unobtrusiveness, scalability, energy efficiency, security. This paper introduces the problems faced by WSN in fields of energy effeciency and security. One of the key part which we will discuss is related to public Key identification, it is one of the most effective way to establish secure connection between devices but in case of Wireless Sensors the energy consumed should be minimized so a different scheme should be proposed for encryption, as in public key generation and computation large processing power is utilised, so many different power effecient techniques are discussed and presented in this paper.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Wireless Sensor Network, Embedded system, AES Encryption, RC5 Encryption, ad hoc, Intrusion Detection Systems
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+Wireless sensor networks(WSN) are being used in many fields like Area Monitoring, health care monitoring, environmental/earth sensing, industrial monitoring, etc. WSN is solving one of the most crucial problem of the world, that is health care problems which comes with old age. People have to spend lots of money to take the healthcare services and sometimes it is too late to provide the medicine to patient at the right time. To deal with all these problems wireless sensor networks can be used, a monitoring device can be connected through wireless network and if any abnormality is detected then it will send a signal telling the sensor to inject the medicine in the patient or will inform about the condition of patient. It is not only targeted to the elderly but can also help in providing quality services to the weak and fragile babies who don't have there parents watching over them for whole day due to work. These devices are wearable and they can also be embedded inside the body.
+\linebreak
+\linebreak
+Currently the WSN is not much utilised because of the availability of old technology, which basically restricts our body in making any movements. Because of the ease of movement the WSN technology is being used widely. When these sensors are embedded inside the body, then the sensor becomes a part of WSN which is called Body Sensor Networks(BSN). These devices help in monitoring, memory enhancement, control of home appliances, medical data access, and communication in emergency situations without restricting the movement of body.
+\linebreak
+\linebreak
+The sensors which are embedded inside the body are generally replacable(not rechargable due to infection concerns) and costs a lot, so they need to consume as less energy as possible. The general concerns involved in recharging are infection due to corrosion of rechargable metal, charging through radiation concerns, etc. So one of the way of reducing the health issue is creating a sensor which can be implantated inside the body and works for a long period of time. But creating Energy effecient devices like that is one of the issue that we are facing in the current scenario. There is trade off of energy and vulnerability, energy and health, energy and data transmission, etc. So in this paper we are going to take a look at one of the key factors that increase the energy consumption of the device, which is the use of many modern cryptographic algorithms to secure the communication between channels and prevent any malicious person to interfere with the patient's sensor device.As Wireless network is more vulnerable as compared to wire path like spoofing, packet change, parking lot attacks, etc, so to avoid all these attacks and to increase the energy effeciency, a lot of methods for encryption are being found out which uses the internal mechanism of the body or some other symmetric key algorithm to increase the device life. We know that reducing energy is always accompanied by increasing vulnerability while using cryptographic algorithm(reducing key size increases energy effeciency but also decreases security). And there are many conditions which must be met before using a particular algorithm in a particular condition so we will be looking into the usage of many algorithms which are being used in the sensor networks and also discussing about the drawback of using the asymmetric key encryption.
+\subsection{Working of Wireless Sensor Networks}
+Wireless Sensor Networks consists of three main components called gateway, nodes and softwares. Wireless measurement systems can overcome power and network infrastructure limitations and deliver reduced costs and reliability as compared to wired connection. WSN nodes can vary from tens to hundreds to thousands, in which one node can be connected to one or several sensors. WSN node generally consists of several parts including radio transceiver with an internal or connection to an external antenna, also a microcontroller used to control the working of sensors, a battery or some source of energy.A sensor node might vary in sizes like it can be as big as a brick to the size of rice grain.
+\linebreak
+\linebreak
+The WSN is a type of adhoc network based on IEEE 802.15.4 standard, it is a standard which defines the use of Low Rates Wireless Personal Area Networks(LR-WPAN). It defines the physical and media access control for the network. It is a low-cost, low-speed type of network, but as compared to WiFi it provides less bandwidth but it also requires low power. It can have a 10m communication range with a transfer rate of 250Kb/s.
+\linebreak
+Generally the patients physiological signals are taken into account with the help of sensors and send to the monitoring system. These values generally include the data of blood pressure, hameaglobin content, heart rate, etc. Based on these factors the analytics is done on the monitoring side which is placed in some different area and if some problem is found it informs the embedded device inside body, and it performs the task as assigned by the monitoring system.
+\linebreak
+\linebreak
+\linebreak
+\includegraphics[width=8.5cm]{wsn}
+\subsection{Application of WSN in Healthcare Monitoring}
+\includegraphics[width=8.5cm]{wsn_hm}
+\linebreak
+\begin{itemize}
+  \item Telemonitoring of Human Physiological Data
+  \item Tracking and Monitoring Doctors and Patients inside a Hospital
+  \item Drug Administration in Hospital
+\end{itemize}
+
+\section{Cryptography and Data Transfer}
+
+\subsection{Overview of widely used Encryption Algorithms}
+\subsubsection{Symmetric Key Cryptography}
+In this type of cryptographic schemes same key is used for both encryption of plaintext and the description of ciphertext. The keys can be identical but some simple transformation is possible to go betweeen the keys.
+\subsubsection{Asymmetric Key Cryptography}
+
+\subsection{Energy Effecient Encryption Algorithms for WSNs}
+We are going to discuss about the encryption scheme used in Wireless sensor networks which is vital part of health monitoring system in terms of saving lives and increasing the battery life of these health monitoring system.
+\section{Conclusion}
+Security concerns constitute a potential stumbling block on the development of sensor Networks. The salient features of WSNs makes it hard to design the encryption algorithm and also designing strong security protocols. The Energy consumed by the famous and secure encryption algorithm is too high, and decreases the battery life by a huge factor. Different encryption algorithm schemes are provided like ENABLE or HBQ which are specifically made to reduce the energy consumption. Due to the advancement in WSN, the cryptographic schemes being proposed now are considering time as well as energy trade off which increases the complexity in algorithm design.
+
+
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+Ju-Hyung Son, Jun-Sik Lee, Seung-Woo Seo \emph{"Energy Efficient Group Key Management Scheme for Wireless Sensor Networks"}, \hskip 1em plus
+  0.5em minus 0.4em\relax IEEE Xplorer, July 2007.
+  
+\bibitem{IEEEhowto:kopka}
+Thomas R. Halford, Keith M. Chugg \emph{"Energy Efficient Group Key Agreement for Wireless Networks"}, \hskip 1em plus
+  0.5em minus 0.4em\relax IEEE Xplorer, August 2015.
+  
+\bibitem{IEEEhowto:kopka}
+Thomas R. Halford, Thomas A. Cortade, Keith M. Chugg \emph{"Energy Efficient Secure Group Key agreement for ad hoc networks"}, \hskip 1em plus
+  0.5em minus 0.4em\relax IEEE Xplorer, December 2013.
+  
+\bibitem{IEEEhowto:kopka}
+T. T. Huynh and T. N. Tran and C. H. Tran and A. V. Dinh-Duc \emph{"Delay constraint energy-efficient routing based on Lagrange relaxation in wireless sensor networks"}, \hskip 1em plus
+  0.5em minus 0.4em\relax IEEE Xplorer, September 2017.
+  
+\bibitem{IEEEhowto:kopka}
+J. Li, X. Hou, D. Su and J. D. D. Munyemana \emph{"Fuzzy power-optimised clustering routing algorithm for wireless sensor networks"}, \hskip 1em plus
+  0.5em minus 0.4em\relax IEEE Xplorer, September 2017.
+  
+\bibitem{IEEEhowto:kopka}
+Ashraf Darwish, Aboul Ella Hassanien \emph{"Wearable and Implantable Wireless Sensor Network Solutions for Healthcare Monitoring"},\hskip 1em plus
+  0.5em minus 0.4em\relax Sensor Bessel, July 2012.
+
+\bibitem{IEEEhowto:kopka}
+\url{https//en.wikipedia.org/wiki/Artificial_immune_system}, Artificial Immune System
+
+\bibitem{IEEEhowto:kopka}
+Media Aminian, Hamid Reza Naji \emph{"A Hospital Healthcare Monitoring System Using Wireless Sensor Networks"},\hskip 1em plus
+  0.5em minus 0.4em\relax Journal of Health and Medical Informatics, Februrary 2013.
+\end{thebibliography}
+
+\end{document}
+
+
