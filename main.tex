@@ -56,9 +56,9 @@ Generally the patients physiological signals are taken into account with the hel
 \linebreak
 \linebreak
 \linebreak
-\includegraphics[width=8.5cm]{wsn}
+\includegraphics[width=8.5cm]{cluster}
 \subsection{Application of WSN in Healthcare Monitoring}
-\includegraphics[width=8.5cm]{wsn_hm}
+\includegraphics[width=8.5cm]{WSN}
 \linebreak
 \begin{itemize}
   \item Telemonitoring of Human Physiological Data
@@ -66,17 +66,95 @@ Generally the patients physiological signals are taken into account with the hel
   \item Drug Administration in Hospital
 \end{itemize}
 
-\section{Cryptography and Data Transfer}
+\section{Cryptography Overview}
+Cryptography is the practice and study of techniques for secure communication in presence of third parties called adversaries.
+\linebreak
+There are five functions of cryptography which must be followed by any algorithms used for cryptography.
+\begin{itemize}
+  \item Confidentiality
+  \item Authentication
+  \item Integrity
+  \item Non-repudiation
+  \item Key Exchange
+\end{itemize}
 
-\subsection{Overview of widely used Encryption Algorithms}
-\subsubsection{Symmetric Key Cryptography}
-In this type of cryptographic schemes same key is used for both encryption of plaintext and the description of ciphertext. The keys can be identical but some simple transformation is possible to go betweeen the keys.
-\subsubsection{Asymmetric Key Cryptography}
+\subsection{Symmetric Key Cryptography}
+In this type of cryptographic schemes same key is used for both encryption of plaintext and the description of ciphertext. The keys can be identical but some simple transformation is possible to go betweeen the keys. The keys must be shared before any transaction of messages can take place.
+\linebreak
 
-\subsection{Energy Effecient Encryption Algorithms for WSNs}
-We are going to discuss about the encryption scheme used in Wireless sensor networks which is vital part of health monitoring system in terms of saving lives and increasing the battery life of these health monitoring system.
+\includegraphics[width=8.5cm]{symmetric}
+
+\subsubsection{Deffie Hellman Key Sharing Algorithm}
+One of the most famous key sharing algorithm that was the base for asymmetric key encryption is the Deffie Hellman Key Sharing algorithm. This algorithm ensures that the key is not compromised with any other malicious user.
+\linebreak
+\includegraphics[width=8.5cm]{hellman}
+
+\subsubsection{AES Encryption}
+AES is an Encryption algorithm based on substituition permutation network, and unlike DES it is not a algorithms based on Feistel Network. It is a variant of Rijindael which has a fixed block size 128 bits and a key size of 128, 192 and 	256 bits.
+\linebreak
+The security of AES encryption completely depends upon the length of the key and it is not breakable even if the algorithm is known. As we now that this encryption is breakable only by brute force attack to find out the key being used but considering the number of bits that is not a possibility because it is next to impossible to find out the key for which we have to find \(2^{192}\) combinations.
+\begin{itemize}
+  \item The keys for each round is derived from the cipher key, which was originally described in Rijindael's key schedule. The keys required are different for each round and it also have one more extra key for the initial round.
+  \item Initial Round: Each byte of the state is combined with a block of the round key using bitwise xor.
+  \item Then we have Rounds. In each round there are some steps which are required to be followed which includes
+  \begin{itemize}
+  \item SubBytes - each byte is replaced with another according to the Substitution Matrix.
+  \item ShiftRows - Last three rows of the state are shifted cyclically.
+  \item MixColumns - 4 bytes are combined in each column also called mixing.
+  \item AddRoundKey
+  \end{itemize}
+  \item FinalRound which is same as the above round but no mixing takes place.
+\end{itemize}
+
+\includegraphics[width=8.5cm]{aes_structure}
+\subsection{Asymmetric Key Cryptography}
+In this type of cryptographic scheme there are two different keys one called private key which is in the possesion of the individual and second one is called public key which is shared between all the people. One can send the encrypted message by encrypting the message with the help of public key and only the individual owning the key can decrypt the message.
+\includegraphics[width=8.5cm]{asymmetric}
+
+\subsubsection{RSA Encryption Scheme}
+RSA is the most practical public key encryption algorithm and is used widely in transmission. This encryption is based on the difficulty of factorisation of the product of two large prime numbers.
+
+The following steps shows the use of RSA scheme:
+\begin{itemize}
+  \item Two large prime numbers p and q and we have \(n = pq \), and \(\phi(n) = (p-1)(q-1)\).
+  \item e is such that \(1 < e < \phi(n)\), and let m be the message, we select d such that \(ed = 1 (mod n)\), where e is the public key and d the private key.
+  \item So \(E(m) = me  (mod\ n), D(E(m)) = med (mod\ n) = m (mod\ n)\) which is the original message
+\end{itemize}
+
+\subsection{Energy Consumption of the above mentioned algorithms}
+The encryption algorithms that are being used in present day encryption strategies have been discussed. The above encryption algorithm shows that it is not possible to break them easily(we can only use brute force to find the key) and provides one the factor of security but what about the other problem that we are facing, the time complexity, the energy consumption etc. An analysis done on the energy consumed in each algorithm is done with a 25MHz clocked processor and it's energy consumed values have been found out.
+
+\subsubsection{Energy Consumption in AES Scheme}
+The amount of Energy used by AES Encryption scheme is shown in the fig. below. As it can be seen that the calculations are done using various block cipher schemes like ECB, CBC, so the power consumption also depends on the type of block cipher being used.
+\includegraphics[width=8.5cm]{energy_aes}
+
+\subsubsection{Energy Consumption in RSA Scheme}
+The amount of Energy used by RSA Encryption scheme is shown in the fig. below. As we can infer that the time and energy consumed by RSA is quite greater than that of AES Scheme, so using RSA in WSN devices is not possible. The complexity is due to the selection of two prime factors and finding out their product. As the numbers are quite big, the energy consumed by them also increases.
+\includegraphics[width=8.5cm]{energy_rsa}
+
+\section{LightWeight Cryptography Schemes for Energy Effecient Encryption in WSN}
+We have seen that the RSA and AES uses a lot of energy and the battery life cannot be preserved for long if we are using them, so now some new schemes used in IoT is being introduced here. These algorithms has been made to reduce the energy consumptions and taking care of problems being faced regarding security in WSN.
+\linebreak
+Over the decade a lot of block ciphers, hash functions, message authentication codes, stream ciphers has been proposed for improved performance of already defined cryptographic standards. These Encryption are based on the fact that the attacker will have some constrains and that's why under the given conditions of IOT will not be able to crack encrypted code. The idea of light weight encryption is to utilize the conditions and have a better performance by maintaing a balance between security, performance and resource requirement.
+
+\subsection{LightWeight Block Ciphers}
+LightWeight block ciphers uses lightweight designs and achieves advantages over conventional schemes. Some of the techniques used are
+\begin{itemize}
+  \item Smaller block sizes - To save memory
+  \item Smaller key sizes - To save energy and computation time.
+  \item Simpler Rounds - Less number of S-boxes as compared to AES.
+  \item Simpler Key Schedules - Using Secure Key Derivation can prevent attacks.
+  \item Minimal Implementation - Use of only one function at a device location.
+\end{itemize}
+
+\subsection{LightWeight Message Authentication Code}
+A Messgae Authentication Code (MAC) generate a tag from message and a secret key, and is used to verify the authenticity and integrity of the message.
+
+\subsection{LightWeight Stream Ciphers}
+Generally Stream ciphers are not preferred to be used in non-constrained environment cause they are easy to crack compared to their alternatives block ciphers, but these stream ciphers can be utilised in LightWight Encryptions. Grain is widely analyzed algorithm involving stream cipher.
+
 \section{Conclusion}
-Security concerns constitute a potential stumbling block on the development of sensor Networks. The salient features of WSNs makes it hard to design the encryption algorithm and also designing strong security protocols. The Energy consumed by the famous and secure encryption algorithm is too high, and decreases the battery life by a huge factor. Different encryption algorithm schemes are provided like ENABLE or HBQ which are specifically made to reduce the energy consumption. Due to the advancement in WSN, the cryptographic schemes being proposed now are considering time as well as energy trade off which increases the complexity in algorithm design.
+Security concerns constitute a potential stumbling block on the development of sensor Networks. The salient features of WSNs makes it hard to design the encryption algorithm and also designing strong security protocols. The Energy consumed by the famous and secure encryption algorithm is too high, and decreases the battery life by a huge factor. Different encryption algorithm schemes are provided like LightWeight Encryption Algorithms which are specifically made to reduce the energy consumption. Due to the advancement in WSN, the cryptographic schemes being proposed now are considering time as well as energy trade off which increases the complexity in algorithm design.
 
 
 \ifCLASSOPTIONcaptionsoff
@@ -115,6 +193,9 @@ Ashraf Darwish, Aboul Ella Hassanien \emph{"Wearable and Implantable Wireless Se
 \bibitem{IEEEhowto:kopka}
 Media Aminian, Hamid Reza Naji \emph{"A Hospital Healthcare Monitoring System Using Wireless Sensor Networks"},\hskip 1em plus
   0.5em minus 0.4em\relax Journal of Health and Medical Informatics, Februrary 2013.
+
+\bibitem{IEEEhowto:kopka}
+\url{http://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8114.pdf}, LightWeight Cryptography
 \end{thebibliography}
 
 \end{document}
